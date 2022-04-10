@@ -1,0 +1,11 @@
+query FetchLesson {
+	lessons {
+		id
+		name
+		flashcards {
+			id
+			front
+			back
+		}
+	}
+}

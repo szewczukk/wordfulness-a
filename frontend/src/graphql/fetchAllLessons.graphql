@@ -1,0 +1,6 @@
+query FetchAllLessons {
+	lessons {
+		id
+		name
+	}
+}
