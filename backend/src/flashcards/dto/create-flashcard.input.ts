@@ -1,4 +1,4 @@
-import { InputType, Field } from '@nestjs/graphql';
+import { InputType, Field, ID } from '@nestjs/graphql';
 
 @InputType()
 export class CreateFlashcardInput {
@@ -7,4 +7,7 @@ export class CreateFlashcardInput {
 
 	@Field()
 	back: string;
+
+	@Field(() => ID)
+	lessonId: number;
 }

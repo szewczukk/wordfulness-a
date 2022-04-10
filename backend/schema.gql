@@ -2,30 +2,53 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Lesson {
+  id: ID!
+  name: String!
+  flashcards: [Flashcard!]!
+}
+
 type Flashcard {
   id: ID!
   front: String!
   back: String!
+  lesson: Lesson!
 }
 
 type Query {
   flashcards: [Flashcard!]!
   flashcard(id: ID!): Flashcard!
+  lessons: [Lesson!]!
+  lesson(id: ID!): Lesson!
 }
 
 type Mutation {
   createFlashcard(createFlashcardInput: CreateFlashcardInput!): Flashcard!
   updateFlashcard(updateFlashcardInput: UpdateFlashcardInput!): Flashcard!
   removeFlashcard(id: ID!): Boolean!
+  createLesson(createLessonInput: CreateLessonInput!): Lesson!
+  updateLesson(updateLessonInput: UpdateLessonInput!): Lesson!
+  removeLesson(id: ID!): Boolean!
 }
 
 input CreateFlashcardInput {
   front: String!
   back: String!
+  lessonId: ID!
 }
 
 input UpdateFlashcardInput {
   front: String
   back: String
+  lessonId: ID
   id: ID!
+}
+
+input CreateLessonInput {
+  name: String!
+}
+
+input UpdateLessonInput {
+  name: String
+  id: Int!
 }

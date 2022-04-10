@@ -3,6 +3,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { FlashcardsModule } from './flashcards/flashcards.module';
+import { LessonsModule } from './lessons/lessons.module';
 
 @Module({
 	imports: [
@@ -23,6 +24,7 @@ import { FlashcardsModule } from './flashcards/flashcards.module';
 			synchronize: true,
 		}),
 		FlashcardsModule,
+		LessonsModule,
 	],
 })
 export class AppModule {}

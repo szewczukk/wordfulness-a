@@ -1,5 +1,6 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Lesson } from 'src/lessons/entities/lesson.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @ObjectType()
 @Entity()
@@ -15,4 +16,8 @@ export class Flashcard {
 	@Column()
 	@Field()
 	back: string;
+
+	@ManyToOne(() => Lesson, (lesson) => lesson.flashcards)
+	@Field(() => Lesson)
+	lesson: Lesson;
 }
