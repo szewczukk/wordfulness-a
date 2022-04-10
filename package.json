@@ -1,10 +1,10 @@
 {
-	"scripts": {
-		"test": "cd frontend && yarn test"
-	},
+  "scripts": {
+    "test": "cd frontend && yarn test",
+		"linter": "cd frontend && yarn linter && cd ../backend && yarn linter"
+  },
   "devDependencies": {
-    "husky": "^7.0.4",
-    "prettier": "^2.6.2"
+    "husky": "^7.0.4"
   },
   "graphql": {
     "schema": "./backend/schema.gql"

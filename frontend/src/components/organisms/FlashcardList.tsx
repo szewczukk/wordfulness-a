@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useFetchFlashcardsQuery } from 'src/generated/graphql';
 import DeleteFlashcardButton from '../molecules/DeleteFlashcardButton';
 
