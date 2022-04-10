@@ -10,13 +10,13 @@ type Flashcard {
 
 type Query {
   flashcards: [Flashcard!]!
-  flashcard(id: Int!): Flashcard!
+  flashcard(id: ID!): Flashcard!
 }
 
 type Mutation {
   createFlashcard(createFlashcardInput: CreateFlashcardInput!): Flashcard!
   updateFlashcard(updateFlashcardInput: UpdateFlashcardInput!): Flashcard!
-  removeFlashcard(id: Int!): Flashcard!
+  removeFlashcard(id: ID!): Boolean!
 }
 
 input CreateFlashcardInput {

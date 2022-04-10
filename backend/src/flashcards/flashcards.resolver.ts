@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args, Int, ID } from '@nestjs/graphql';
 import { FlashcardsService } from './flashcards.service';
 import { Flashcard } from './entities/flashcard.entity';
 import { CreateFlashcardInput } from './dto/create-flashcard.input';
@@ -6,30 +6,37 @@ import { UpdateFlashcardInput } from './dto/update-flashcard.input';
 
 @Resolver(() => Flashcard)
 export class FlashcardsResolver {
-  constructor(private readonly flashcardsService: FlashcardsService) {}
+	constructor(private readonly flashcardsService: FlashcardsService) {}
 
-  @Mutation(() => Flashcard)
-  createFlashcard(@Args('createFlashcardInput') createFlashcardInput: CreateFlashcardInput) {
-    return this.flashcardsService.create(createFlashcardInput);
-  }
+	@Mutation(() => Flashcard)
+	createFlashcard(
+		@Args('createFlashcardInput') createFlashcardInput: CreateFlashcardInput,
+	) {
+		return this.flashcardsService.create(createFlashcardInput);
+	}
 
-  @Query(() => [Flashcard], { name: 'flashcards' })
-  findAll() {
-    return this.flashcardsService.findAll();
-  }
+	@Query(() => [Flashcard], { name: 'flashcards' })
+	findAll() {
+		return this.flashcardsService.findAll();
+	}
 
-  @Query(() => Flashcard, { name: 'flashcard' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.flashcardsService.findOne(id);
-  }
+	@Query(() => Flashcard, { name: 'flashcard' })
+	findOne(@Args('id', { type: () => ID }) id: number) {
+		return this.flashcardsService.findOne(id);
+	}
 
-  @Mutation(() => Flashcard)
-  updateFlashcard(@Args('updateFlashcardInput') updateFlashcardInput: UpdateFlashcardInput) {
-    return this.flashcardsService.update(updateFlashcardInput.id, updateFlashcardInput);
-  }
+	@Mutation(() => Flashcard)
+	updateFlashcard(
+		@Args('updateFlashcardInput') updateFlashcardInput: UpdateFlashcardInput,
+	) {
+		return this.flashcardsService.update(
+			updateFlashcardInput.id,
+			updateFlashcardInput,
+		);
+	}
 
-  @Mutation(() => Flashcard)
-  removeFlashcard(@Args('id', { type: () => Int }) id: number) {
-    return this.flashcardsService.remove(id);
-  }
+	@Mutation(() => Boolean)
+	removeFlashcard(@Args('id', { type: () => ID }) id: number) {
+		return this.flashcardsService.remove(id);
+	}
 }

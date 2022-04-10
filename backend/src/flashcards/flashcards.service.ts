@@ -29,7 +29,8 @@ export class FlashcardsService {
 		return `This action updates a #${id} flashcard`;
 	}
 
-	remove(id: number) {
-		return `This action removes a #${id} flashcard`;
+	async remove(id: number) {
+		const result = await this.usersRepository.delete(id);
+		return result.affected !== 0;
 	}
 }

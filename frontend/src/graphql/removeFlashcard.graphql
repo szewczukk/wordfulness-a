@@ -1,0 +1,3 @@
+mutation RemoveFlashcard($id: ID!) {
+	removeFlashcard(id: $id)
+}
