@@ -1,0 +1,31 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Flashcard {
+  id: ID!
+  front: String!
+  back: String!
+}
+
+type Query {
+  flashcards: [Flashcard!]!
+  flashcard(id: Int!): Flashcard!
+}
+
+type Mutation {
+  createFlashcard(createFlashcardInput: CreateFlashcardInput!): Flashcard!
+  updateFlashcard(updateFlashcardInput: UpdateFlashcardInput!): Flashcard!
+  removeFlashcard(id: Int!): Flashcard!
+}
+
+input CreateFlashcardInput {
+  front: String!
+  back: String!
+}
+
+input UpdateFlashcardInput {
+  front: String
+  back: String
+  id: Int!
+}
