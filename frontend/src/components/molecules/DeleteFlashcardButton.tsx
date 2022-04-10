@@ -22,14 +22,18 @@ const DeleteFlashcardButton: FC<DeleteFlashcardButtonProps> = ({ id }) => {
 					query: FetchFlashcardsDocument,
 				});
 
-				store.writeQuery<FetchFlashcardsQuery>({
-					query: FetchFlashcardsDocument,
-					data: {
-						flashcards: data.flashcards.filter(
-							({ id: flashcardId }) => flashcardId !== id,
-						),
-					},
-				});
+				if (data?.flashcards) {
+					store.writeQuery<FetchFlashcardsQuery>({
+						query: FetchFlashcardsDocument,
+						data: {
+							flashcards: data.flashcards.filter(
+								({ id: flashcardId }) => flashcardId !== id,
+							),
+						},
+					});
+				} else {
+					console.error('Error while updating cache');
+				}
 			},
 		});
 	};

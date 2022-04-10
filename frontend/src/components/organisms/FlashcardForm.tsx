@@ -20,12 +20,16 @@ const FlashcardForm: FC = () => {
 						query: FetchFlashcardsDocument,
 					});
 
-					store.writeQuery<FetchFlashcardsQuery>({
-						query: FetchFlashcardsDocument,
-						data: {
-							flashcards: [...data.flashcards, response.createFlashcard],
-						},
-					});
+					if (data?.flashcards && response?.createFlashcard) {
+						store.writeQuery<FetchFlashcardsQuery>({
+							query: FetchFlashcardsDocument,
+							data: {
+								flashcards: [...data.flashcards, response.createFlashcard],
+							},
+						});
+					} else {
+						console.error('Error while updating cache');
+					}
 				},
 			});
 		},
