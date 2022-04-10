@@ -6,6 +6,7 @@ import {
 	useCreateFlashcardMutation,
 } from 'src/generated/graphql';
 import Input from '../atoms/Input';
+import FormField from '../molecules/FormField';
 
 const FlashcardForm: FC = () => {
 	const [createFlashcard] = useCreateFlashcardMutation();
@@ -35,20 +36,8 @@ const FlashcardForm: FC = () => {
 			onSubmit={formik.handleSubmit}
 			className="flex flex-col gap-2 items-start mt-4"
 		>
-			<Input
-				type="text"
-				name="front"
-				id="front"
-				placeholder="Front"
-				onChange={formik.handleChange}
-			/>
-			<Input
-				type="text"
-				name="back"
-				id="back"
-				placeholder="Back"
-				onChange={formik.handleChange}
-			/>
+			<FormField name="front" label="Front" onChange={formik.handleChange} />
+			<FormField name="back" label="Back" onChange={formik.handleChange} />
 			<button
 				type="submit"
 				className="bg-green-500 py-2 px-4 rounded text-white"
