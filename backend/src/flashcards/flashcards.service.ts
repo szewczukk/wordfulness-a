@@ -25,8 +25,13 @@ export class FlashcardsService {
 		return this.usersRepository.findOne({ where: { id } });
 	}
 
-	update(id: number, updateFlashcardInput: UpdateFlashcardInput) {
-		return `This action updates a #${id} flashcard`;
+	async update(updateFlashcardInput: UpdateFlashcardInput) {
+		// TODO: REFACTOR THIS TO ONE QUERY
+		await this.usersRepository.update(
+			{ id: updateFlashcardInput.id },
+			{ ...updateFlashcardInput },
+		);
+		return this.findOne(updateFlashcardInput.id);
 	}
 
 	async remove(id: number) {

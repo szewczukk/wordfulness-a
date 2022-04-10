@@ -3,29 +3,29 @@
 # ------------------------------------------------------
 
 type Flashcard {
-	id: ID!
-	front: String!
-	back: String!
+  id: ID!
+  front: String!
+  back: String!
 }
 
 type Query {
-	flashcards: [Flashcard!]!
-	flashcard(id: ID!): Flashcard!
+  flashcards: [Flashcard!]!
+  flashcard(id: ID!): Flashcard!
 }
 
 type Mutation {
-	createFlashcard(createFlashcardInput: CreateFlashcardInput!): Flashcard!
-	updateFlashcard(updateFlashcardInput: UpdateFlashcardInput!): Flashcard!
-	removeFlashcard(id: ID!): Boolean!
+  createFlashcard(createFlashcardInput: CreateFlashcardInput!): Flashcard!
+  updateFlashcard(updateFlashcardInput: UpdateFlashcardInput!): Flashcard!
+  removeFlashcard(id: ID!): Boolean!
 }
 
 input CreateFlashcardInput {
-	front: String!
-	back: String!
+  front: String!
+  back: String!
 }
 
 input UpdateFlashcardInput {
-	front: String
-	back: String
-	id: Int!
+  front: String
+  back: String
+  id: ID!
 }
