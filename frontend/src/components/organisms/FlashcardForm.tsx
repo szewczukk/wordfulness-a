@@ -1,30 +1,39 @@
 import { useFormik } from 'formik';
 import React, { FC } from 'react';
+import { useParams } from 'react-router-dom';
 import {
-	FetchFlashcardsDocument,
-	FetchFlashcardsQuery,
+	FetchLessonDocument,
+	FetchLessonQuery,
 	useCreateFlashcardMutation,
 } from 'src/generated/graphql';
 import Button from '../atoms/Button';
 import FormField from '../molecules/FormField';
 
 const FlashcardForm: FC = () => {
+	const { id: lessonId } = useParams();
 	const [createFlashcard] = useCreateFlashcardMutation();
 	const formik = useFormik({
 		initialValues: { front: '', back: '' },
 		onSubmit: (values) => {
 			createFlashcard({
-				variables: values,
+				variables: { ...values, lessonId: lessonId as string },
 				update: (store, { data: response }) => {
-					const data = store.readQuery<FetchFlashcardsQuery>({
-						query: FetchFlashcardsDocument,
+					const data = store.readQuery<FetchLessonQuery>({
+						query: FetchLessonDocument,
+						variables: { id: lessonId },
 					});
 
-					if (data?.flashcards && response?.createFlashcard) {
-						store.writeQuery<FetchFlashcardsQuery>({
-							query: FetchFlashcardsDocument,
+					if (data?.lesson && response?.createFlashcard) {
+						store.writeQuery<FetchLessonQuery>({
+							query: FetchLessonDocument,
 							data: {
-								flashcards: [...data.flashcards, response.createFlashcard],
+								lesson: {
+									...data.lesson,
+									flashcards: [
+										...data.lesson.flashcards,
+										response.createFlashcard,
+									],
+								},
 							},
 						});
 					} else {

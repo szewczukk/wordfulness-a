@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
+import { useParams } from 'react-router-dom';
 import {
-	FetchFlashcardsDocument,
-	FetchFlashcardsQuery,
+	FetchLessonDocument,
+	FetchLessonQuery,
 	useRemoveFlashcardMutation,
 } from 'src/generated/graphql';
 import Button from '../atoms/Button';
@@ -11,6 +12,7 @@ interface DeleteFlashcardButtonProps {
 }
 
 const DeleteFlashcardButton: FC<DeleteFlashcardButtonProps> = ({ id }) => {
+	const { id: lessonId } = useParams();
 	const [removeFlashcard] = useRemoveFlashcardMutation();
 
 	const handleClick = () => {
@@ -18,17 +20,21 @@ const DeleteFlashcardButton: FC<DeleteFlashcardButtonProps> = ({ id }) => {
 			variables: { id },
 
 			update: (store) => {
-				const data = store.readQuery<FetchFlashcardsQuery>({
-					query: FetchFlashcardsDocument,
+				const data = store.readQuery<FetchLessonQuery>({
+					query: FetchLessonDocument,
+					variables: { id: lessonId },
 				});
 
-				if (data?.flashcards) {
-					store.writeQuery<FetchFlashcardsQuery>({
-						query: FetchFlashcardsDocument,
+				if (data?.lesson) {
+					store.writeQuery<FetchLessonQuery>({
+						query: FetchLessonDocument,
 						data: {
-							flashcards: data.flashcards.filter(
-								({ id: flashcardId }) => flashcardId !== id,
-							),
+							lesson: {
+								...data.lesson,
+								flashcards: data.lesson.flashcards.filter(
+									({ id: flashcardId }) => flashcardId !== id,
+								),
+							},
 						},
 					});
 				} else {

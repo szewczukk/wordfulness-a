@@ -20,8 +20,8 @@ export class LessonsService {
 		return this.lessonsRepository.find({ relations: ['flashcards'] });
 	}
 
-	findOne(id: number) {
-		return this.lessonsRepository.find({
+	async findOne(id: number) {
+		return this.lessonsRepository.findOne({
 			where: { id },
 			relations: ['flashcards'],
 		});

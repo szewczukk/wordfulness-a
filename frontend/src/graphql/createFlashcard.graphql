@@ -1,6 +1,6 @@
-mutation CreateFlashcard($front: String!, $back: String!) {
+mutation CreateFlashcard($front: String!, $back: String!, $lessonId: ID!) {
 	createFlashcard(
-		createFlashcardInput: { front: $front, back: $back, lessonId: 2 }
+		createFlashcardInput: { front: $front, back: $back, lessonId: $lessonId }
 	) {
 		id
 		front
