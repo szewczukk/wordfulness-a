@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { useFetchAllLessonsQuery } from 'src/generated/graphql';
+import LessonsForm from '../organisms/LessonForm';
 
 const Home: FC = () => {
 	const { data } = useFetchAllLessonsQuery();
 
 	return (
 		<>
-			<h1>All lessons:</h1>
 			<ul>
 				{data?.lessons &&
 					data.lessons.map((lesson) => (
@@ -20,6 +20,7 @@ const Home: FC = () => {
 						</Link>
 					))}
 			</ul>
+			<LessonsForm />
 		</>
 	);
 };

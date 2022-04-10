@@ -1,0 +1,6 @@
+mutation CreateLesson($name: String!) {
+	createLesson(createLessonInput: { name: $name }) {
+		id
+		name
+	}
+}
