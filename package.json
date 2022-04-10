@@ -1,8 +1,12 @@
 {
+	"scripts": {
+		"test": "cd frontend && yarn test"
+	},
   "devDependencies": {
+    "husky": "^7.0.4",
     "prettier": "^2.6.2"
   },
-	"graphql": {
-		"schema": "./backend/schema.gql"
-	}
+  "graphql": {
+    "schema": "./backend/schema.gql"
+  }
 }
