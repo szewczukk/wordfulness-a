@@ -11,7 +11,9 @@ const FlashcardList: FC = () => {
 				<ul>
 					{data.flashcards.map((flashcard, i) => (
 						<li key={flashcard.id}>
-							{i} - {flashcard.front} - {flashcard.back}
+							<span className="mr-2">
+								{i} - {flashcard.front} - {flashcard.back}
+							</span>
 							<DeleteFlashcardButton id={flashcard.id} />
 						</li>
 					))}
