@@ -23,7 +23,7 @@ const FlashcardForm: FC = () => {
 					store.writeQuery<FetchFlashcardsQuery>({
 						query: FetchFlashcardsDocument,
 						data: {
-							flashcards: [...data!.flashcards, response!.createFlashcard],
+							flashcards: [...data.flashcards, response.createFlashcard],
 						},
 					});
 				},

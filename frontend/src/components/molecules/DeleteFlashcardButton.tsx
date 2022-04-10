@@ -25,7 +25,7 @@ const DeleteFlashcardButton: FC<DeleteFlashcardButtonProps> = ({ id }) => {
 				store.writeQuery<FetchFlashcardsQuery>({
 					query: FetchFlashcardsDocument,
 					data: {
-						flashcards: data!.flashcards.filter(
+						flashcards: data.flashcards.filter(
 							({ id: flashcardId }) => flashcardId !== id,
 						),
 					},
