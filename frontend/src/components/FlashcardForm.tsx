@@ -5,6 +5,7 @@ import {
 	FetchFlashcardsQuery,
 	useCreateFlashcardMutation,
 } from 'src/generated/graphql';
+import Input from './atoms/Input';
 
 const FlashcardForm: FC = () => {
 	const [createFlashcard] = useCreateFlashcardMutation();
@@ -34,18 +35,18 @@ const FlashcardForm: FC = () => {
 			onSubmit={formik.handleSubmit}
 			className="flex flex-col gap-2 items-start mt-4"
 		>
-			<input
+			<Input
 				type="text"
 				name="front"
 				id="front"
-				className="border rounded p-2"
+				placeholder="Front"
 				onChange={formik.handleChange}
 			/>
-			<input
+			<Input
 				type="text"
 				name="back"
 				id="back"
-				className="border rounded p-2"
+				placeholder="Back"
 				onChange={formik.handleChange}
 			/>
 			<button
