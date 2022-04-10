@@ -1,4 +1,4 @@
-import { Resolver, Query, Mutation, Args, Int, ID } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args, ID } from '@nestjs/graphql';
 import { FlashcardsService } from './flashcards.service';
 import { Flashcard } from './entities/flashcard.entity';
 import { CreateFlashcardInput } from './dto/create-flashcard.input';
