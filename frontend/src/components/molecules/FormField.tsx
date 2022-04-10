@@ -16,7 +16,13 @@ const FormField: FC<FormFieldProps> = ({
 }) => (
 	<div className="flex flex-col gap-1">
 		<label htmlFor={name}>{label}</label>
-		<Input name={name} id={name} type={type} onChange={onChange} />
+		<Input
+			name={name}
+			id={name}
+			type={type}
+			placeholder={label}
+			onChange={onChange}
+		/>
 	</div>
 );
 
