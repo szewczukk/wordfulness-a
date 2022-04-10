@@ -5,7 +5,7 @@ import {
 	FetchFlashcardsQuery,
 	useCreateFlashcardMutation,
 } from 'src/generated/graphql';
-import Input from './atoms/Input';
+import Input from '../atoms/Input';
 
 const FlashcardForm: FC = () => {
 	const [createFlashcard] = useCreateFlashcardMutation();

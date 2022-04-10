@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useFetchFlashcardsQuery } from 'src/generated/graphql';
-import DeleteFlashcardButton from './DeleteFlashcardButton';
+import DeleteFlashcardButton from '../molecules/DeleteFlashcardButton';
 
 const FlashcardList: FC = () => {
 	const { data } = useFetchFlashcardsQuery();

@@ -1,7 +1,7 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import React, { FC } from 'react';
-import FlashcardForm from './FlashcardForm';
-import FlashcardList from './FlashcardList';
+import FlashcardForm from './organisms/FlashcardForm';
+import FlashcardList from './organisms/FlashcardList';
 
 const client = new ApolloClient({
 	uri: 'http://localhost:3000/graphql',
