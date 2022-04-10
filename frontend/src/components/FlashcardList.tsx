@@ -1,17 +1,16 @@
 import { FC } from 'react';
-import { useFetchFlashcardsQuery } from '../generated/graphql';
+import { useFetchFlashcardsQuery } from 'src/generated/graphql';
 
 const FlashcardList: FC = () => {
 	const { data } = useFetchFlashcardsQuery();
 
 	return (
-		<div className="container mx-auto">
-			<h1 className="mb-4 text-2xl font-semibold">Flashcards:</h1>
+		<div>
 			{data?.flashcards && (
 				<ul>
-					{data.flashcards.map((flashcard) => (
+					{data.flashcards.map((flashcard, i) => (
 						<li key={flashcard.id}>
-							{flashcard.front} {flashcard.back}
+							{i} - {flashcard.front} - {flashcard.back}
 						</li>
 					))}
 				</ul>

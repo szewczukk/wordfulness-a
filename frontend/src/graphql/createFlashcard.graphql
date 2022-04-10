@@ -1,0 +1,7 @@
+mutation CreateFlashcard($front: String!, $back: String!) {
+	createFlashcard(createFlashcardInput: { front: $front, back: $back }) {
+		id
+		front
+		back
+	}
+}
