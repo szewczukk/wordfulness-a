@@ -4,6 +4,7 @@ import {
 	FetchFlashcardsQuery,
 	useRemoveFlashcardMutation,
 } from 'src/generated/graphql';
+import Button from '../atoms/Button';
 
 interface DeleteFlashcardButtonProps {
 	id: string;
@@ -34,12 +35,9 @@ const DeleteFlashcardButton: FC<DeleteFlashcardButtonProps> = ({ id }) => {
 	};
 
 	return (
-		<button
-			onClick={handleClick}
-			className="ml-2 bg-red-600 px-4 py-2 text-white rounded"
-		>
+		<Button onClick={handleClick} role="danger">
 			Remove
-		</button>
+		</Button>
 	);
 };
 

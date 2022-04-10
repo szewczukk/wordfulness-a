@@ -5,7 +5,7 @@ import {
 	FetchFlashcardsQuery,
 	useCreateFlashcardMutation,
 } from 'src/generated/graphql';
-import Input from '../atoms/Input';
+import Button from '../atoms/Button';
 import FormField from '../molecules/FormField';
 
 const FlashcardForm: FC = () => {
@@ -38,12 +38,9 @@ const FlashcardForm: FC = () => {
 		>
 			<FormField name="front" label="Front" onChange={formik.handleChange} />
 			<FormField name="back" label="Back" onChange={formik.handleChange} />
-			<button
-				type="submit"
-				className="bg-green-500 py-2 px-4 rounded text-white"
-			>
+			<Button type="submit" role="info">
 				Submit
-			</button>
+			</Button>
 		</form>
 	);
 };
