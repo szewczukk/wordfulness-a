@@ -2,8 +2,7 @@ import React, { ButtonHTMLAttributes, FC } from 'react';
 
 type ButtonRole = 'danger' | 'success' | 'info';
 
-interface ButtonProps
-	extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	role: ButtonRole;
 }
 
@@ -20,9 +19,9 @@ const getStyles = (role: ButtonRole): string => {
 	}
 };
 
-const Button: FC<ButtonProps> = ({ role, ...rest }) => (
+const Button: FC<ButtonProps> = ({ role, className, ...rest }) => (
 	<button
-		className={`py-2 px-4 rounded text-white ${getStyles(role)}`}
+		className={`py-2 px-4 rounded text-white ${getStyles(role)} ${className}`}
 		{...rest}
 	/>
 );

@@ -1,9 +1,12 @@
 import React, { FC, HTMLProps } from 'react';
 
-type InputProps = Omit<HTMLProps<HTMLInputElement>, 'className'>;
+type InputProps = HTMLProps<HTMLInputElement>;
 
-const Input: FC<InputProps> = (props) => (
-	<input className="border rounded p-2 outline-1 outline-gray-400" {...props} />
+const Input: FC<InputProps> = ({ className, ...rest }) => (
+	<input
+		className={`border rounded p-2 outline-1 outline-gray-400 ${className}`}
+		{...rest}
+	/>
 );
 
 export default Input;
