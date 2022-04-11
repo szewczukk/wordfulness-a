@@ -1,4 +1,5 @@
 {
+	 "license": "UNLICENSED",
   "scripts": {
     "test": "cd frontend && yarn test",
 		"linter": "cd frontend && yarn linter && cd ../backend && yarn linter"
