@@ -9,11 +9,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const getStyles = (role: ButtonRole): string => {
 	switch (role) {
 		case 'info':
-			return 'bg-blue-500';
+			return 'bg-blue-500 hover:bg-blue-600';
 		case 'success':
-			return 'bg-green-500';
+			return 'bg-green-500 hover:bg-green-600';
 		case 'danger':
-			return 'bg-red-500';
+			return 'bg-red-500 hover:bg-red-600';
 		default:
 			return '';
 	}
@@ -21,7 +21,9 @@ const getStyles = (role: ButtonRole): string => {
 
 const Button: FC<ButtonProps> = ({ role, className, ...rest }) => (
 	<button
-		className={`py-2 px-4 rounded text-white ${getStyles(role)} ${className}`}
+		className={`py-2 px-4 rounded text-white transition-colors ${getStyles(
+			role,
+		)} ${className}`}
 		{...rest}
 	/>
 );
