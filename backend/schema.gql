@@ -2,10 +2,17 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Course {
+  id: Float!
+  name: String!
+  lessons: [Lesson!]!
+}
+
 type Lesson {
   id: ID!
   name: String!
   flashcards: [Flashcard!]!
+  course: Course!
 }
 
 type Flashcard {
@@ -20,6 +27,8 @@ type Query {
   flashcard(id: ID!): Flashcard!
   lessons: [Lesson!]!
   lesson(id: ID!): Lesson!
+  courses: [Course!]!
+  course(id: ID!): Course!
 }
 
 type Mutation {
@@ -29,6 +38,9 @@ type Mutation {
   createLesson(createLessonInput: CreateLessonInput!): Lesson!
   updateLesson(updateLessonInput: UpdateLessonInput!): Lesson!
   removeLesson(id: ID!): Boolean!
+  createCourse(createCourseInput: CreateCourseInput!): Course!
+  updateCourse(updateCourseInput: UpdateCourseInput!): Course!
+  removeCourse(id: ID!): Course!
 }
 
 input CreateFlashcardInput {
@@ -46,9 +58,20 @@ input UpdateFlashcardInput {
 
 input CreateLessonInput {
   name: String!
+  courseId: ID!
 }
 
 input UpdateLessonInput {
+  name: String
+  courseId: ID
+  id: Int!
+}
+
+input CreateCourseInput {
+  name: String!
+}
+
+input UpdateCourseInput {
   name: String
   id: Int!
 }

@@ -13,7 +13,10 @@ export class LessonsService {
 	) {}
 
 	create(createLessonInput: CreateLessonInput) {
-		return this.lessonsRepository.save(createLessonInput);
+		return this.lessonsRepository.save({
+			...createLessonInput,
+			course: { id: createLessonInput.courseId },
+		});
 	}
 
 	findAll() {
