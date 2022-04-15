@@ -1,6 +1,7 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import React, { FC } from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import DetailedCourse from './pages/DetailedCourse';
 import DetailedLesson from './pages/DetailedLesson';
 import Home from './pages/Home';
 
@@ -17,8 +18,9 @@ const App: FC = () => (
 					Home
 				</Link>
 				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/:id" element={<DetailedLesson />} />
+					<Route path="" element={<Home />} />
+					<Route path="/courses/:id" element={<DetailedCourse />} />
+					<Route path="/lessons/:id" element={<DetailedLesson />} />
 				</Routes>
 			</BrowserRouter>
 		</ApolloProvider>

@@ -5,7 +5,9 @@ import DeleteFlashcardButton from '../molecules/DeleteFlashcardButton';
 
 const FlashcardList: FC = () => {
 	const { id } = useParams();
-	const { data } = useFetchLessonQuery({ variables: { id: id as string } });
+	const { data } = useFetchLessonQuery({
+		variables: { id: id as string },
+	});
 
 	return (
 		<div>

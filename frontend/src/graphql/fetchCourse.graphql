@@ -1,0 +1,10 @@
+query FetchCourse($id: ID!) {
+	course(id: $id) {
+		id
+		name
+		lessons {
+			id
+			name
+		}
+	}
+}

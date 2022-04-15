@@ -1,5 +1,5 @@
-mutation CreateLesson($name: String!) {
-	createLesson(createLessonInput: { name: $name }) {
+mutation CreateLesson($name: String!, $courseId: ID!) {
+	createLesson(createLessonInput: { name: $name, courseId: $courseId }) {
 		id
 		name
 	}

@@ -1,0 +1,6 @@
+query FetchAllCourses {
+	courses {
+		id
+		name
+	}
+}

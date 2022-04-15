@@ -4,6 +4,7 @@ import FlashcardList from '../organisms/FlashcardList';
 
 const DetailedLesson: FC = () => (
 	<>
+		<h1>Flashcards:</h1>
 		<FlashcardList />
 		<FlashcardForm />
 	</>

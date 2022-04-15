@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
-import LessonsForm from '../organisms/LessonForm';
-import LessonsList from '../organisms/LessonsList';
+import CoursesList from '../organisms/CoursesList';
 
 const Home: FC = () => {
 	return (
 		<>
-			<LessonsList />
-			<LessonsForm />
+			<h1>Courses: </h1>
+			<CoursesList />
 		</>
 	);
 };
