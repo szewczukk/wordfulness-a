@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { FlashcardsModule } from './flashcards/flashcards.module';
 import { LessonsModule } from './lessons/lessons.module';
 import { CoursesModule } from './courses/courses.module';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
 	imports: [
@@ -14,16 +15,17 @@ import { CoursesModule } from './courses/courses.module';
 			playground: true,
 			autoSchemaFile: 'schema.gql',
 		}),
-		TypeOrmModule.forRoot({
-			type: 'postgres',
-			host: '127.0.0.1',
-			port: 5432,
-			username: 'wordfulness',
-			password: 'zaq',
-			database: 'wordfulness',
-			autoLoadEntities: true,
-			synchronize: true,
+		TypeOrmModule.forRootAsync({
+			inject: [ConfigService],
+			imports: [ConfigModule],
+			useFactory: (configService: ConfigService) => ({
+				type: 'postgres',
+				url: configService.get<string>('DATABASE_URL'),
+				autoLoadEntities: true,
+				synchronize: true,
+			}),
 		}),
+		ConfigModule.forRoot(),
 		FlashcardsModule,
 		LessonsModule,
 		CoursesModule,

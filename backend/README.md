@@ -26,6 +26,10 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Environmental variables
+
+- DATABASE_URL - URL to PostgreSQL database
+
 ## Installation
 
 ```bash
