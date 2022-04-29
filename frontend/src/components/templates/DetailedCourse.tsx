@@ -1,12 +1,21 @@
 import React, { FC } from 'react';
-import LessonsForm from '../organisms/LessonForm';
+import { Lesson } from 'src/generated/graphql';
+import LessonsForm, { LessonsFormValues } from '../organisms/LessonForm';
 import LessonsList from '../organisms/LessonsList';
 
-const DetailedCourseTemplate: FC = () => (
+interface DetailedCourseTemplateProps {
+	lessons?: Omit<Lesson, 'flashcards' | 'course'>[];
+	onSubmit: (values: LessonsFormValues) => void;
+}
+
+const DetailedCourseTemplate: FC<DetailedCourseTemplateProps> = ({
+	lessons,
+	onSubmit,
+}) => (
 	<>
 		<h1>Lessons</h1>
-		<LessonsList />
-		<LessonsForm />
+		{lessons && <LessonsList lessons={lessons} />}
+		<LessonsForm onSubmit={onSubmit} />
 	</>
 );
 

@@ -1,44 +1,20 @@
 import { useFormik } from 'formik';
 import React, { FC } from 'react';
-import { useParams } from 'react-router-dom';
-import {
-	FetchCourseDocument,
-	FetchCourseQuery,
-	useCreateLessonMutation,
-} from 'src/generated/graphql';
 import Button from '../atoms/Button';
 import FormField from '../molecules/FormField';
 
-const LessonsForm: FC = () => {
-	const { id: courseId } = useParams();
-	const [createLesson] = useCreateLessonMutation();
+export interface LessonsFormValues {
+	name: string;
+}
+
+interface LessonsFormProps {
+	onSubmit: (values: LessonsFormValues) => void;
+}
+
+const LessonsForm: FC<LessonsFormProps> = ({ onSubmit }) => {
 	const formik = useFormik({
 		initialValues: { name: '' },
-		onSubmit: (values) => {
-			createLesson({
-				variables: { ...values, courseId: courseId as string },
-				update: (store, { data: response }) => {
-					const data = store.readQuery<FetchCourseQuery>({
-						query: FetchCourseDocument,
-						variables: { id: courseId },
-					});
-
-					if (data?.course && response?.createLesson) {
-						store.writeQuery<FetchCourseQuery>({
-							query: FetchCourseDocument,
-							data: {
-								course: {
-									...data.course,
-									lessons: [...data.course.lessons, response.createLesson],
-								},
-							},
-						});
-					} else {
-						console.error('Error while updating cache');
-					}
-				},
-			});
-		},
+		onSubmit,
 	});
 
 	return (
