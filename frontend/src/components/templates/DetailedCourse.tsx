@@ -14,7 +14,7 @@ const DetailedCourseTemplate: FC<DetailedCourseTemplateProps> = ({
 }) => (
 	<>
 		<h1>Lessons</h1>
-		{lessons && <LessonsList lessons={lessons} />}
+		{lessons ? <LessonsList lessons={lessons} /> : <h2>No lessons!</h2>}
 		<LessonsForm onSubmit={onSubmit} />
 	</>
 );
