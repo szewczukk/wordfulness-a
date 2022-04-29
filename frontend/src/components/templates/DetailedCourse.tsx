@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import LessonsForm from '../organisms/LessonForm';
 import LessonsList from '../organisms/LessonsList';
 
-const DetailedCourse: FC = () => (
+const DetailedCourseTemplate: FC = () => (
 	<>
 		<h1>Lessons</h1>
 		<LessonsList />
@@ -10,4 +10,4 @@ const DetailedCourse: FC = () => (
 	</>
 );
 
-export default DetailedCourse;
+export default DetailedCourseTemplate;
