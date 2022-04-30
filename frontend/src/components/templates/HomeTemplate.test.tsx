@@ -2,7 +2,7 @@ import React from 'react';
 import { describe, it } from 'vitest';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Home from './Home';
+import Home from './HomeTemplate';
 
 describe('Testing Home template', () => {
 	it("It doesn't render empty array", () => {

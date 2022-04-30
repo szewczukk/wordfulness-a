@@ -1,7 +1,7 @@
 import React from 'react';
 import { describe, it } from 'vitest';
 import { render } from '@testing-library/react';
-import DetailedCourseTemplate from './DetailedCourse';
+import DetailedCourseTemplate from './DetailedCourseTemplate';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Testing DetailedCourse template', () => {

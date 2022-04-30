@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { describe, it } from 'vitest';
 import { render } from '@testing-library/react';
-import DetailedLessonTemplate from './DetailedLesson';
+import DetailedLessonTemplate from './DetailedLessonTemplate';
 import { MockedProvider } from '@apollo/client/testing';
 import { MemoryRouter } from 'react-router-dom';
 

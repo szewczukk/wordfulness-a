@@ -1,9 +1,9 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import React, { FC } from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import DetailedCoursePage from './pages/DetailedCourse';
-import DetailedLessonPage from './pages/DetailedLesson';
-import Home from './pages/Home';
+import DetailedCoursePage from './pages/DetailedCoursePage';
+import DetailedLessonPage from './pages/DetailedLessonPage';
+import Home from './pages/HomePage';
 
 const client = new ApolloClient({
 	uri: 'http://localhost:3000/graphql',

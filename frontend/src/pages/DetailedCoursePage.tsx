@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { LessonsFormValues } from 'src/components/organisms/LessonForm';
-import DetailedCourseTemplate from 'src/components/templates/DetailedCourse';
+import DetailedCourseTemplate from 'src/components/templates/DetailedCourseTemplate';
 import {
 	FetchCourseDocument,
 	FetchCourseQuery,

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import HomeTemplate from 'src/components/templates/Home';
+import HomeTemplate from 'src/components/templates/HomeTemplate';
 import { useFetchAllCoursesQuery } from 'src/generated/graphql';
 
 const HomePage: FC = () => {

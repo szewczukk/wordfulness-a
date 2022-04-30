@@ -6,7 +6,7 @@ import {
 	useCreateFlashcardMutation,
 	useFetchLessonQuery,
 } from 'src/generated/graphql';
-import DetailedLessonTemplate from 'src/components/templates/DetailedLesson';
+import DetailedLessonTemplate from 'src/components/templates/DetailedLessonTemplate';
 
 const DetailedLessonPage: FC = () => {
 	const { id } = useParams();
