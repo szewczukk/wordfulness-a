@@ -9,7 +9,7 @@ interface HomeTemplateProps {
 const HomeTemplate: FC<HomeTemplateProps> = ({ courses }) => (
 	<>
 		<h1>Courses: </h1>
-		{courses && <CoursesList courses={courses} />}
+		{courses ? <CoursesList courses={courses} /> : <h2>No courses!</h2>}
 	</>
 );
 
