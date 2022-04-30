@@ -25,3 +25,4 @@ dist-ssr
 
 src/generated/graphql.tsx
 **/__snapshots__/*
+coverage/
