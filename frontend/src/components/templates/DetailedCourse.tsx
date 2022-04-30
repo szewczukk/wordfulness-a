@@ -13,8 +13,14 @@ const DetailedCourseTemplate: FC<DetailedCourseTemplateProps> = ({
 	onSubmit,
 }) => (
 	<>
-		<h1>Lessons</h1>
-		{lessons ? <LessonsList lessons={lessons} /> : <h2>No lessons!</h2>}
+		{lessons && lessons.length ? (
+			<>
+				<h1>Lessons:</h1>
+				<LessonsList lessons={lessons} />
+			</>
+		) : (
+			<h1>No lessons!</h1>
+		)}
 		<LessonsForm onSubmit={onSubmit} />
 	</>
 );

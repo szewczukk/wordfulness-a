@@ -8,8 +8,14 @@ interface HomeTemplateProps {
 
 const HomeTemplate: FC<HomeTemplateProps> = ({ courses }) => (
 	<>
-		<h1>Courses: </h1>
-		{courses ? <CoursesList courses={courses} /> : <h2>No courses!</h2>}
+		{courses ? (
+			<>
+				<h1>Courses:</h1>
+				<CoursesList courses={courses} />
+			</>
+		) : (
+			<h1>No courses!</h1>
+		)}
 	</>
 );
 

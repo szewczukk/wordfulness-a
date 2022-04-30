@@ -27,6 +27,7 @@ describe('Testing DetailedCourse template', () => {
 			{ wrapper: MemoryRouter },
 		);
 
+		getByText(/Lessons:/);
 		getByText(/Hello/);
 		getByText(/World/);
 	});

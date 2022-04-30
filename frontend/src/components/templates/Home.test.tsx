@@ -25,6 +25,7 @@ describe('Testing Home template', () => {
 			{ wrapper: MemoryRouter },
 		);
 
+		getByText(/Courses:/);
 		getByText(/Hello/);
 		getByText(/World/);
 	});
