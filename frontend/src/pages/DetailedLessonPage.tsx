@@ -5,11 +5,13 @@ import {
 	FetchDetailedLessonQuery,
 	useCreateFlashcardMutation,
 	useFetchDetailedLessonQuery,
+	useRemoveFlashcardMutation,
 } from 'src/generated/graphql';
 import DetailedLessonTemplate from 'src/components/templates/DetailedLessonTemplate';
 
 const DetailedLessonPage: FC = () => {
 	const { id } = useParams();
+	const [removeFlashcard] = useRemoveFlashcardMutation();
 	const [createFlashcard] = useCreateFlashcardMutation();
 	const { data } = useFetchDetailedLessonQuery({
 		variables: { id: id as string },
@@ -43,11 +45,40 @@ const DetailedLessonPage: FC = () => {
 			},
 		});
 	};
+	const handleDeleteFlashcard = (flashcardId: string) => {
+		removeFlashcard({
+			variables: { id: flashcardId },
+			update: (store) => {
+				const data = store.readQuery<FetchDetailedLessonQuery>({
+					query: FetchDetailedLessonDocument,
+					variables: { id },
+				});
+
+				if (data?.lesson) {
+					store.writeQuery<FetchDetailedLessonQuery>({
+						query: FetchDetailedLessonDocument,
+						data: {
+							lesson: {
+								...data.lesson,
+								flashcards: data.lesson.flashcards.filter(
+									({ id: cachedFlashcardId }) =>
+										cachedFlashcardId !== flashcardId,
+								),
+							},
+						},
+					});
+				} else {
+					console.error('Error while updating cache');
+				}
+			},
+		});
+	};
 
 	return (
 		<DetailedLessonTemplate
 			flashcards={data?.lesson.flashcards}
 			onSubmit={handleSubmit}
+			onDeleteFlashcard={handleDeleteFlashcard}
 		/>
 	);
 };
