@@ -14,8 +14,6 @@ const getStyles = (role: ButtonRole): string => {
 			return 'bg-green-500 hover:bg-green-600';
 		case 'danger':
 			return 'bg-red-500 hover:bg-red-600';
-		default:
-			return '';
 	}
 };
 
