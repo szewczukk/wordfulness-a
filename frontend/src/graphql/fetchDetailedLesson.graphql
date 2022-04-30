@@ -1,4 +1,4 @@
-query FetchLesson($id: ID!) {
+query FetchDetailedLesson($id: ID!) {
 	lesson(id: $id) {
 		id
 		name

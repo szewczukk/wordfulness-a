@@ -1,4 +1,4 @@
-query FetchCourse($id: ID!) {
+query FetchDetailedCourse($id: ID!) {
 	course(id: $id) {
 		id
 		name

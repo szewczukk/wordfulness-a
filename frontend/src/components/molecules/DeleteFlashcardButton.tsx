@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { useParams } from 'react-router-dom';
 import {
-	FetchLessonDocument,
-	FetchLessonQuery,
+	FetchDetailedLessonDocument,
+	FetchDetailedLessonQuery,
 	useRemoveFlashcardMutation,
 } from 'src/generated/graphql';
 import Button from '../atoms/Button';
@@ -20,14 +20,14 @@ const DeleteFlashcardButton: FC<DeleteFlashcardButtonProps> = ({ id }) => {
 			variables: { id },
 
 			update: (store) => {
-				const data = store.readQuery<FetchLessonQuery>({
-					query: FetchLessonDocument,
+				const data = store.readQuery<FetchDetailedLessonQuery>({
+					query: FetchDetailedLessonDocument,
 					variables: { id: lessonId },
 				});
 
 				if (data?.lesson) {
-					store.writeQuery<FetchLessonQuery>({
-						query: FetchLessonDocument,
+					store.writeQuery<FetchDetailedLessonQuery>({
+						query: FetchDetailedLessonDocument,
 						data: {
 							lesson: {
 								...data.lesson,

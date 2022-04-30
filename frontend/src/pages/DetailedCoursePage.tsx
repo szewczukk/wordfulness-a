@@ -3,16 +3,16 @@ import { useParams } from 'react-router-dom';
 import { LessonsFormValues } from 'src/components/organisms/LessonForm';
 import DetailedCourseTemplate from 'src/components/templates/DetailedCourseTemplate';
 import {
-	FetchCourseDocument,
-	FetchCourseQuery,
+	FetchDetailedCourseDocument,
+	FetchDetailedCourseQuery,
 	useCreateLessonMutation,
-	useFetchCourseQuery,
+	useFetchDetailedCourseQuery,
 } from 'src/generated/graphql';
 
 const DetailedCoursePage: FC = () => {
 	const { id } = useParams();
 	const [createLesson] = useCreateLessonMutation();
-	const { data } = useFetchCourseQuery({
+	const { data } = useFetchDetailedCourseQuery({
 		variables: { id: id as string },
 	});
 
@@ -20,14 +20,14 @@ const DetailedCoursePage: FC = () => {
 		createLesson({
 			variables: { ...values, courseId: id as string },
 			update: (store, { data: response }) => {
-				const data = store.readQuery<FetchCourseQuery>({
-					query: FetchCourseDocument,
+				const data = store.readQuery<FetchDetailedCourseQuery>({
+					query: FetchDetailedCourseDocument,
 					variables: { id },
 				});
 
 				if (data?.course && response?.createLesson) {
-					store.writeQuery<FetchCourseQuery>({
-						query: FetchCourseDocument,
+					store.writeQuery<FetchDetailedCourseQuery>({
+						query: FetchDetailedCourseDocument,
 						data: {
 							course: {
 								...data.course,
