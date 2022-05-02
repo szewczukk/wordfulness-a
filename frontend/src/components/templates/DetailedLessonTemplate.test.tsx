@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { describe, it } from 'vitest';
+import { describe, it, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import DetailedLessonTemplate from './DetailedLessonTemplate';
 import { MockedProvider } from '@apollo/client/testing';
@@ -8,12 +8,7 @@ import { MemoryRouter } from 'react-router-dom';
 describe('Testing DetailedLesson template', () => {
 	it("It doesn't render empty array", () => {
 		const { getByText } = render(
-			<DetailedLessonTemplate
-				// eslint-disable-next-line @typescript-eslint/no-empty-function
-				onSubmit={() => {}}
-				// eslint-disable-next-line @typescript-eslint/no-empty-function
-				onDeleteFlashcard={() => {}}
-			/>,
+			<DetailedLessonTemplate onSubmit={vi.fn()} onDeleteFlashcard={vi.fn()} />,
 		);
 
 		getByText(/No flashcards!/);
@@ -28,10 +23,8 @@ describe('Testing DetailedLesson template', () => {
 
 		const { getByText } = render(
 			<DetailedLessonTemplate
-				// eslint-disable-next-line @typescript-eslint/no-empty-function
-				onSubmit={() => {}}
-				// eslint-disable-next-line @typescript-eslint/no-empty-function
-				onDeleteFlashcard={() => {}}
+				onSubmit={vi.fn()}
+				onDeleteFlashcard={vi.fn()}
 				flashcards={[
 					{ id: '0', front: 'Hello', back: 'World' },
 					{ id: '1', front: 'World', back: 'Hello' },

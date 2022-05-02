@@ -6,10 +6,7 @@ import Home from './HomeTemplate';
 
 describe('Testing Home template', () => {
 	it("It doesn't render empty array", () => {
-		const { getByText } = render(
-			// eslint-disable-next-line @typescript-eslint/no-empty-function
-			<Home />,
-		);
+		const { getByText } = render(<Home />);
 
 		getByText(/No courses!/);
 	});
