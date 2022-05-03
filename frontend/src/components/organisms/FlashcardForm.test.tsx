@@ -16,8 +16,6 @@ describe('Testing FlashcardForm', () => {
 
 		fireEvent.click(screen.getByRole('button'));
 
-		screen.getByText(/Submit/).click();
-
 		await screen.findByText(/Front required!/);
 		await screen.findByText(/Back required!/);
 	});
