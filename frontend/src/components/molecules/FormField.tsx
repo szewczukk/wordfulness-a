@@ -3,8 +3,10 @@ import Input from '../atoms/Input';
 
 interface FormFieldProps {
 	type?: string;
+	value?: string;
 	name: string;
 	label: string;
+	error?: string;
 	onChange: FormEventHandler<HTMLInputElement>;
 }
 
@@ -12,6 +14,8 @@ const FormField: FC<FormFieldProps> = ({
 	onChange,
 	name,
 	label,
+	value,
+	error,
 	type = 'text',
 }) => (
 	<div className="flex flex-col gap-1">
@@ -22,7 +26,9 @@ const FormField: FC<FormFieldProps> = ({
 			type={type}
 			placeholder={label}
 			onChange={onChange}
+			value={value}
 		/>
+		<p className="text-red-400">{error}</p>
 	</div>
 );
 
