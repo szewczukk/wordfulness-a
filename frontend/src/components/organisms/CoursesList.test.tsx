@@ -13,8 +13,8 @@ describe('Testing CoursesList', () => {
 		render(
 			<CoursesList
 				courses={[
-					{ id: 0, name: 'Hello' },
-					{ id: 1, name: 'World' },
+					{ id: '0', name: 'Hello' },
+					{ id: '1', name: 'World' },
 				]}
 			/>,
 			{ wrapper: MemoryRouter },

@@ -15,8 +15,8 @@ describe('Testing Home template', () => {
 		render(
 			<Home
 				courses={[
-					{ id: 0, name: 'Hello' },
-					{ id: 1, name: 'World' },
+					{ id: '0', name: 'Hello' },
+					{ id: '1', name: 'World' },
 				]}
 			/>,
 			{ wrapper: MemoryRouter },
