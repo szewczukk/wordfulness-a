@@ -10,7 +10,8 @@
 		"test": "vitest run",
 		"coverage": "vitest run --coverage",
 		"format": "prettier --write . --config ../.prettierrc.json",
-		"linter": "eslint ."
+		"eslint": "eslint .",
+		"typecheck": "tsc --noemit"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.5.10",

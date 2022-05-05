@@ -1,13 +1,13 @@
 {
-	 "license": "UNLICENSED",
-  "scripts": {
-    "test": "cd frontend && yarn test",
-		"linter": "cd frontend && yarn linter && cd ../backend && yarn linter"
-  },
-  "devDependencies": {
-    "husky": "^7.0.4"
-  },
-  "graphql": {
-    "schema": "./backend/schema.gql"
-  }
+	"license": "UNLICENSED",
+	"scripts": {
+		"test": "cd frontend && yarn test",
+		"eslint": "cd frontend && yarn eslint && cd ../backend && yarn eslint"
+	},
+	"devDependencies": {
+		"husky": "^7.0.4"
+	},
+	"graphql": {
+		"schema": "./backend/schema.gql"
+	}
 }
