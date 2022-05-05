@@ -1,17 +1,17 @@
 import React, { FC } from 'react';
 import { describe, it, vi } from 'vitest';
-import { render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import DetailedLessonTemplate from './DetailedLessonTemplate';
 import { MockedProvider } from '@apollo/client/testing';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Testing DetailedLesson template', () => {
 	it("It doesn't render empty array", () => {
-		const { getByText } = render(
+		render(
 			<DetailedLessonTemplate onSubmit={vi.fn()} onDeleteFlashcard={vi.fn()} />,
 		);
 
-		getByText(/No flashcards!/);
+		screen.getByText(/No flashcards!/);
 	});
 
 	it('It renders array with flashcards', () => {
@@ -21,7 +21,7 @@ describe('Testing DetailedLesson template', () => {
 			</MockedProvider>
 		);
 
-		const { getByText } = render(
+		render(
 			<DetailedLessonTemplate
 				onSubmit={vi.fn()}
 				onDeleteFlashcard={vi.fn()}
@@ -33,8 +33,8 @@ describe('Testing DetailedLesson template', () => {
 			{ wrapper },
 		);
 
-		getByText(/Flashcards:/);
-		getByText(/1 - Hello - World/);
-		getByText(/2 - World - Hello/);
+		screen.getByText(/Flashcards:/);
+		screen.getByText(/1 - Hello - World/);
+		screen.getByText(/2 - World - Hello/);
 	});
 });

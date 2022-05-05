@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, it } from 'vitest';
-import { render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import CoursesList from './CoursesList';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ describe('Testing CoursesList', () => {
 	});
 
 	it('It renders array with courses and links to them', () => {
-		const { getByText } = render(
+		render(
 			<CoursesList
 				courses={[
 					{ id: 0, name: 'Hello' },
@@ -20,11 +20,11 @@ describe('Testing CoursesList', () => {
 			{ wrapper: MemoryRouter },
 		);
 
-		expect(getByText(/Hello/).parentElement).toHaveAttribute(
+		expect(screen.getByText(/Hello/).parentElement).toHaveAttribute(
 			'href',
 			'/courses/0',
 		);
-		expect(getByText(/World/).parentElement).toHaveAttribute(
+		expect(screen.getByText(/World/).parentElement).toHaveAttribute(
 			'href',
 			'/courses/1',
 		);

@@ -1,18 +1,18 @@
 import React from 'react';
 import { describe, it, vi } from 'vitest';
-import { render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import DetailedCourseTemplate from './DetailedCourseTemplate';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Testing DetailedCourse template', () => {
 	it("It doesn't render empty array", () => {
-		const { getByText } = render(<DetailedCourseTemplate onSubmit={vi.fn()} />);
+		render(<DetailedCourseTemplate onSubmit={vi.fn()} />);
 
-		getByText(/No lessons!/);
+		screen.getByText(/No lessons!/);
 	});
 
 	it('It renders array with lessons', () => {
-		const { getByText } = render(
+		render(
 			<DetailedCourseTemplate
 				onSubmit={vi.fn()}
 				lessons={[
@@ -23,8 +23,8 @@ describe('Testing DetailedCourse template', () => {
 			{ wrapper: MemoryRouter },
 		);
 
-		getByText(/Lessons:/);
-		getByText(/Hello/);
-		getByText(/World/);
+		screen.getByText(/Lessons:/);
+		screen.getByText(/Hello/);
+		screen.getByText(/World/);
 	});
 });
