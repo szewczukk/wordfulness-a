@@ -11,20 +11,18 @@ const FlashcardList: FC<FlashcardListProps> = ({
 	flashcards,
 	onDeleteFlashcard,
 }) => (
-	<div>
-		<ul className="flex flex-col gap-2">
-			{flashcards.map((flashcard, i) => (
-				<li key={flashcard.id}>
-					<span className="mr-2">
-						{i + 1} - {flashcard.front} - {flashcard.back}
-					</span>
-					<Button role="danger" onClick={() => onDeleteFlashcard(flashcard.id)}>
-						Delete
-					</Button>
-				</li>
-			))}
-		</ul>
-	</div>
+	<ul className="flex flex-col gap-2">
+		{flashcards.map((flashcard, i) => (
+			<li key={flashcard.id}>
+				<span className="mr-2">
+					{i + 1} - {flashcard.front} - {flashcard.back}
+				</span>
+				<Button role="danger" onClick={() => onDeleteFlashcard(flashcard.id)}>
+					Delete
+				</Button>
+			</li>
+		))}
+	</ul>
 );
 
 export default FlashcardList;
