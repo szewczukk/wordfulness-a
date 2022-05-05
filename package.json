@@ -3,6 +3,7 @@
 	"scripts": {
 		"test": "cd frontend && yarn test",
 		"eslint": "cd frontend && yarn eslint && cd ../backend && yarn eslint",
+		"typecheck": "cd frontend && yarn typecheck && cd ../backend && yarn typecheck",
 		"prepare": "husky install"
 	},
 	"devDependencies": {
