@@ -11,7 +11,8 @@
 		"coverage": "vitest run --coverage",
 		"format": "prettier --write . --config ../.prettierrc.json",
 		"eslint": "eslint .",
-		"typecheck": "tsc --noemit"
+		"typecheck": "tsc --noemit",
+		"e2e": "cypress open"
 	},
 	"dependencies": {
 		"@apollo/client": "^3.5.10",
@@ -38,6 +39,7 @@
 		"@vitejs/plugin-react": "^1.0.7",
 		"autoprefixer": "^10.4.4",
 		"c8": "^7.11.2",
+		"cypress": "^9.6.0",
 		"eslint": "^8.12.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-react": "^7.29.4",

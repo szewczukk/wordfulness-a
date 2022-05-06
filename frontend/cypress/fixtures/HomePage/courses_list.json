@@ -1,0 +1,16 @@
+{
+	"data": {
+		"courses": [
+			{
+				"id": "0",
+				"name": "Hello",
+				"__typename": "Course"
+			},
+			{
+				"id": "1",
+				"name": "World",
+				"__typename": "Course"
+			}
+		]
+	}
+}
