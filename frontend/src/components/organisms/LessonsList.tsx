@@ -9,13 +9,14 @@ interface LessonsListProps {
 const LessonsList: FC<LessonsListProps> = ({ lessons }) => (
 	<ul>
 		{lessons.map((lesson) => (
-			<Link
-				key={lesson.id}
-				className="hover:underline cursor-pointer"
-				to={`/lessons/${lesson.id}`}
-			>
-				<li>{lesson.name}</li>
-			</Link>
+			<li key={lesson.id}>
+				<Link
+					className="hover:underline cursor-pointer"
+					to={`/lessons/${lesson.id}`}
+				>
+					{lesson.name}
+				</Link>
+			</li>
 		))}
 	</ul>
 );
