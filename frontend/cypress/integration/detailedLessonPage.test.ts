@@ -1,5 +1,5 @@
 describe('Test DetailedLesson page', () => {
-	beforeEach(() => {
+	it('Test whether navigation to this page works', () => {
 		cy.intercept(
 			{ method: 'POST', url: 'http://localhost:3000/graphql' },
 			{ fixture: 'DetailedCoursePage/with_lessons.json' },
@@ -8,6 +8,15 @@ describe('Test DetailedLesson page', () => {
 		cy.visit('/courses/0');
 
 		cy.wait('@graphql');
+
+		cy.intercept(
+			{ method: 'POST', url: 'http://localhost:3000/graphql' },
+			{ fixture: 'DetailedLessonPage/no_flashcards.json' },
+		).as('graphql');
+
+		cy.contains('Lesson #1').should('have.attr', 'href', '/lessons/0').click();
+
+		cy.url().should('contain', '/lessons/0');
 	});
 
 	it('Should render empty flashcards array', () => {
@@ -16,7 +25,7 @@ describe('Test DetailedLesson page', () => {
 			{ fixture: 'DetailedLessonPage/no_flashcards.json' },
 		).as('graphql');
 
-		cy.contains('Lesson #1').click();
+		cy.visit('/lessons/0');
 
 		cy.wait('@graphql');
 
@@ -29,7 +38,7 @@ describe('Test DetailedLesson page', () => {
 			{ fixture: 'DetailedLessonPage/with_flashcards.json' },
 		).as('graphql');
 
-		cy.contains('Lesson #1').click();
+		cy.visit('/lessons/0');
 
 		cy.wait('@graphql');
 
@@ -44,7 +53,7 @@ describe('Test DetailedLesson page', () => {
 			{ fixture: 'DetailedLessonPage/with_flashcards.json' },
 		).as('graphql');
 
-		cy.contains('Lesson #1').click();
+		cy.visit('/lessons/0');
 
 		cy.wait('@graphql');
 

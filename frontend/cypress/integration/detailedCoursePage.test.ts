@@ -1,5 +1,5 @@
 describe('Test DetailedCourse page', () => {
-	beforeEach(() => {
+	it('Test whether navigation to this page works', () => {
 		cy.intercept(
 			{ method: 'POST', url: 'http://localhost:3000/graphql' },
 			{ fixture: 'HomePage/courses_list.json' },
@@ -8,6 +8,15 @@ describe('Test DetailedCourse page', () => {
 		cy.visit('/');
 
 		cy.wait('@graphql');
+
+		cy.intercept(
+			{ method: 'POST', url: 'http://localhost:3000/graphql' },
+			{ fixture: 'DetailedCoursePage/no_lessons.json' },
+		).as('graphql');
+
+		cy.contains('Hello').should('have.attr', 'href', '/courses/0').click();
+
+		cy.url().should('contain', '/courses/0');
 	});
 
 	it('Should render empty lessons array', () => {
@@ -16,7 +25,7 @@ describe('Test DetailedCourse page', () => {
 			{ fixture: 'DetailedCoursePage/no_lessons.json' },
 		).as('graphql');
 
-		cy.contains('Hello').click();
+		cy.visit('/courses/0');
 
 		cy.wait('@graphql');
 
@@ -29,7 +38,7 @@ describe('Test DetailedCourse page', () => {
 			{ fixture: 'DetailedCoursePage/with_lessons.json' },
 		).as('graphql');
 
-		cy.contains('Hello').click();
+		cy.visit('/courses/0');
 
 		cy.wait('@graphql');
 
@@ -52,7 +61,7 @@ describe('Test DetailedCourse page', () => {
 			{ fixture: 'DetailedCoursePage/with_lessons.json' },
 		).as('graphql');
 
-		cy.contains('Hello').click();
+		cy.visit('/courses/0');
 
 		cy.wait('@graphql');
 
