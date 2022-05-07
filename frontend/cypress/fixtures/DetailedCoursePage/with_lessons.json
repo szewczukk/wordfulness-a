@@ -1,0 +1,21 @@
+{
+	"data": {
+		"course": {
+			"id": "0",
+			"name": "Hello",
+			"lessons": [
+				{
+					"id": "0",
+					"name": "Lesson #1",
+					"__typename": "Lesson"
+				},
+				{
+					"id": "1",
+					"name": "Lesson #2",
+					"__typename": "Lesson"
+				}
+			],
+			"__typename": "Course"
+		}
+	}
+}

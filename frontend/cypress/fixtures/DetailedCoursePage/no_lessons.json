@@ -1,0 +1,10 @@
+{
+	"data": {
+		"course": {
+			"id": "0",
+			"name": "Hello",
+			"lessons": [],
+			"__typename": "Course"
+		}
+	}
+}

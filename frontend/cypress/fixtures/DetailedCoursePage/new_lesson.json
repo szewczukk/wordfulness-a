@@ -1,0 +1,9 @@
+{
+	"data": {
+		"createLesson": {
+			"id": "2",
+			"name": "Lesson #3",
+			"__typename": "Lesson"
+		}
+	}
+}
