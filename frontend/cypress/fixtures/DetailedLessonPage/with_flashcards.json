@@ -1,0 +1,23 @@
+{
+	"data": {
+		"lesson": {
+			"id": "1",
+			"name": "Lesson #1",
+			"flashcards": [
+				{
+					"id": "1",
+					"front": "F1Front",
+					"back": "F2Back",
+					"__typename": "Flashcard"
+				},
+				{
+					"id": "2",
+					"front": "F2Front",
+					"back": "F2Back",
+					"__typename": "Flashcard"
+				}
+			],
+			"__typename": "Lesson"
+		}
+	}
+}

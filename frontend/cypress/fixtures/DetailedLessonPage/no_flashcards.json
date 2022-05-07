@@ -1,0 +1,10 @@
+{
+	"data": {
+		"lesson": {
+			"id": "1",
+			"name": "Lesson #1",
+			"flashcards": [],
+			"__typename": "Lesson"
+		}
+	}
+}

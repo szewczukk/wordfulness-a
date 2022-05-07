@@ -1,0 +1,10 @@
+{
+	"data": {
+		"createFlashcard": {
+			"id": "2",
+			"front": "F3Front",
+			"back": "F3Back",
+			"__typename": "Flashcard"
+		}
+	}
+}
