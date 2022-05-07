@@ -5,13 +5,13 @@
 			"name": "Lesson #1",
 			"flashcards": [
 				{
-					"id": "1",
+					"id": "0",
 					"front": "F1Front",
 					"back": "F2Back",
 					"__typename": "Flashcard"
 				},
 				{
-					"id": "2",
+					"id": "1",
 					"front": "F2Front",
 					"back": "F2Back",
 					"__typename": "Flashcard"
