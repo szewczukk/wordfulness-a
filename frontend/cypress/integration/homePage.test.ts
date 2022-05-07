@@ -31,5 +31,7 @@ describe('Home page', () => {
 					.should('have.attr', 'href')
 					.and('match', /\/courses\/\d/);
 			});
+		cy.contains('Hello').should('exist');
+		cy.contains('World').should('exist');
 	});
 });

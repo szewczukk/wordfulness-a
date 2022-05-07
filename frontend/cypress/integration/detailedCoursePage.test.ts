@@ -42,6 +42,8 @@ describe('Test DetailedCourse page', () => {
 					.should('have.attr', 'href')
 					.and('match', /\/lessons\/\d/);
 			});
+		cy.contains('Lesson #1').should('exist');
+		cy.contains('Lesson #2').should('exist');
 	});
 
 	it('Should be able to create new lesson', () => {
