@@ -7,7 +7,19 @@ describe('FlashcardsResolver', () => {
 
 	beforeEach(async () => {
 		const module: TestingModule = await Test.createTestingModule({
-			providers: [FlashcardsResolver, FlashcardsService],
+			providers: [
+				FlashcardsResolver,
+				{
+					provide: FlashcardsService,
+					useValue: {
+						findOne: jest.fn(),
+						findAll: jest.fn(),
+						create: jest.fn(),
+						update: jest.fn(),
+						remove: jest.fn(),
+					},
+				},
+			],
 		}).compile();
 
 		resolver = module.get<FlashcardsResolver>(FlashcardsResolver);

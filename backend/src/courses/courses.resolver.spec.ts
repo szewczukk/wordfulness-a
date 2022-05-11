@@ -7,7 +7,19 @@ describe('CoursesResolver', () => {
 
 	beforeEach(async () => {
 		const module: TestingModule = await Test.createTestingModule({
-			providers: [CoursesResolver, CoursesService],
+			providers: [
+				CoursesResolver,
+				{
+					provide: CoursesService,
+					useValue: {
+						findOne: jest.fn(),
+						findAll: jest.fn(),
+						create: jest.fn(),
+						update: jest.fn(),
+						remove: jest.fn(),
+					},
+				},
+			],
 		}).compile();
 
 		resolver = module.get<CoursesResolver>(CoursesResolver);
