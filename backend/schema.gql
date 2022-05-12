@@ -22,6 +22,11 @@ type Flashcard {
   lesson: Lesson!
 }
 
+type User {
+  id: ID!
+  username: String!
+}
+
 type Query {
   flashcards: [Flashcard!]!
   flashcard(id: ID!): Flashcard!
@@ -29,6 +34,8 @@ type Query {
   lesson(id: ID!): Lesson!
   courses: [Course!]!
   course(id: ID!): Course!
+  users: [User!]!
+  user(id: ID!): User!
 }
 
 type Mutation {
@@ -41,6 +48,9 @@ type Mutation {
   createCourse(createCourseInput: CreateCourseInput!): Course!
   updateCourse(updateCourseInput: UpdateCourseInput!): Course!
   removeCourse(id: ID!): Course!
+  createUser(createUserInput: CreateUserInput!): User!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+  removeUser(id: ID!): User!
 }
 
 input CreateFlashcardInput {
@@ -73,5 +83,16 @@ input CreateCourseInput {
 
 input UpdateCourseInput {
   name: String
+  id: Int!
+}
+
+input CreateUserInput {
+  username: String!
+  password: String!
+}
+
+input UpdateUserInput {
+  username: String
+  password: String
   id: Int!
 }
