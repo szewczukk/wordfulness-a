@@ -29,8 +29,9 @@ export class CoursesService {
 		});
 	}
 
-	update(id: number, updateCourseInput: UpdateCourseInput) {
-		return `This action updates a #${id} course`;
+	async update(id: number, updateCourseInput: UpdateCourseInput) {
+		await this.coursesRepository.update({ id }, { ...updateCourseInput });
+		return this.findOne(updateCourseInput.id);
 	}
 
 	remove(id: number) {

@@ -29,7 +29,7 @@ export class LessonsResolver {
 	updateLesson(
 		@Args('updateLessonInput') updateLessonInput: UpdateLessonInput,
 	) {
-		return this.lessonsService.update(updateLessonInput);
+		return this.lessonsService.update(updateLessonInput.id, updateLessonInput);
 	}
 
 	@Mutation(() => Boolean)

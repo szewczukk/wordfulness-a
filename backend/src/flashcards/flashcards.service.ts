@@ -31,12 +31,9 @@ export class FlashcardsService {
 		});
 	}
 
-	async update(updateFlashcardInput: UpdateFlashcardInput) {
+	async update(id: number, updateFlashcardInput: UpdateFlashcardInput) {
 		// TODO: REFACTOR THIS TO ONE QUERY
-		await this.usersRepository.update(
-			{ id: updateFlashcardInput.id },
-			{ ...updateFlashcardInput },
-		);
+		await this.usersRepository.update({ id }, { ...updateFlashcardInput });
 		return this.findOne(updateFlashcardInput.id);
 	}
 

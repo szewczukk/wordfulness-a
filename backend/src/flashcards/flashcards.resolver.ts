@@ -29,7 +29,10 @@ export class FlashcardsResolver {
 	updateFlashcard(
 		@Args('updateFlashcardInput') updateFlashcardInput: UpdateFlashcardInput,
 	) {
-		return this.flashcardsService.update(updateFlashcardInput);
+		return this.flashcardsService.update(
+			updateFlashcardInput.id,
+			updateFlashcardInput,
+		);
 	}
 
 	@Mutation(() => Boolean)

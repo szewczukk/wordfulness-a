@@ -30,12 +30,9 @@ export class LessonsService {
 		});
 	}
 
-	async update(updateLessonInput: UpdateLessonInput) {
+	async update(id: number, updateLessonInput: UpdateLessonInput) {
 		// TODO: REFACTOR THIS TO ONE QUERY
-		await this.lessonsRepository.update(
-			{ id: updateLessonInput.id },
-			{ ...updateLessonInput },
-		);
+		await this.lessonsRepository.update({ id }, { ...updateLessonInput });
 		return this.findOne(updateLessonInput.id);
 	}
 
