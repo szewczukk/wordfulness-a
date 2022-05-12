@@ -3,7 +3,7 @@ import { describe, it, vi } from 'vitest';
 import { screen, render, fireEvent } from '@testing-library/react';
 import LessonForm from './LessonForm';
 
-describe('Testing LessonForm', () => {
+describe('LessonForm', () => {
 	it('Should contain name text field', () => {
 		render(<LessonForm onSubmit={vi.fn()} />);
 

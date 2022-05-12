@@ -4,7 +4,7 @@ import { screen, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Home from './HomeTemplate';
 
-describe('Testing Home template', () => {
+describe('HomeTemplate', () => {
 	it("It doesn't render empty array", () => {
 		render(<Home />);
 

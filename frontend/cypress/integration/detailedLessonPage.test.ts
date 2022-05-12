@@ -1,4 +1,4 @@
-describe('Test DetailedLesson page', () => {
+describe('DetailedLesson', () => {
 	it('Test whether navigation to this page works', () => {
 		cy.intercept(
 			{ method: 'POST', url: 'http://localhost:3000/graphql' },

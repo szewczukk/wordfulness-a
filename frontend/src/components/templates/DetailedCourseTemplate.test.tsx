@@ -4,7 +4,7 @@ import { screen, render } from '@testing-library/react';
 import DetailedCourseTemplate from './DetailedCourseTemplate';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('Testing DetailedCourse template', () => {
+describe('DetailedCourseTemplate', () => {
 	it("It doesn't render empty array", () => {
 		render(<DetailedCourseTemplate onSubmit={vi.fn()} />);
 

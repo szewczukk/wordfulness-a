@@ -3,7 +3,7 @@ import { describe, it, vi } from 'vitest';
 import { screen, render, fireEvent } from '@testing-library/react';
 import FormField from './FormField';
 
-describe('Testing FormField', () => {
+describe('FormField', () => {
 	it('It associates the label with input', () => {
 		render(
 			<FormField

@@ -3,7 +3,7 @@ import { describe, it } from 'vitest';
 import { screen, render, fireEvent } from '@testing-library/react';
 import Input from './Input';
 
-describe('Testing Input', () => {
+describe('Input', () => {
 	it('It renders the input', () => {
 		render(<Input placeholder="Hello World" type="text" />);
 

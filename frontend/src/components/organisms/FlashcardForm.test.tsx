@@ -3,7 +3,7 @@ import { describe, it, vi } from 'vitest';
 import { screen, render, fireEvent } from '@testing-library/react';
 import FlashcardForm from './FlashcardForm';
 
-describe('Testing FlashcardForm', () => {
+describe('FlashcardForm', () => {
 	it('Should contain front and back text fields', () => {
 		render(<FlashcardForm onSubmit={vi.fn()} />);
 

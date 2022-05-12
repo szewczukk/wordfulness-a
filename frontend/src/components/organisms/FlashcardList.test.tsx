@@ -3,7 +3,7 @@ import { describe, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import FlashcardList from './FlashcardList';
 
-describe('Testing FlashcardList', () => {
+describe('FlashcardList', () => {
 	it('It renders an empty array without an error', () => {
 		render(<FlashcardList flashcards={[]} onDeleteFlashcard={vi.fn()} />);
 	});

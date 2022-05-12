@@ -5,7 +5,7 @@ import DetailedLessonTemplate from './DetailedLessonTemplate';
 import { MockedProvider } from '@apollo/client/testing';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('Testing DetailedLesson template', () => {
+describe('DetailedLessonTemplate', () => {
 	it("It doesn't render empty array", () => {
 		render(
 			<DetailedLessonTemplate onSubmit={vi.fn()} onDeleteFlashcard={vi.fn()} />,

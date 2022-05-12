@@ -4,7 +4,7 @@ import { screen, render } from '@testing-library/react';
 import CoursesList from './CoursesList';
 import { MemoryRouter } from 'react-router-dom';
 
-describe('Testing CoursesList', () => {
+describe('CoursesList', () => {
 	it('It renders an empty array without an error', () => {
 		render(<CoursesList courses={[]} />);
 	});
@@ -20,13 +20,7 @@ describe('Testing CoursesList', () => {
 			{ wrapper: MemoryRouter },
 		);
 
-		expect(screen.getByText(/Hello/).parentElement).toHaveAttribute(
-			'href',
-			'/courses/0',
-		);
-		expect(screen.getByText(/World/).parentElement).toHaveAttribute(
-			'href',
-			'/courses/1',
-		);
+		expect(screen.getByText(/Hello/)).toHaveAttribute('href', '/courses/0');
+		expect(screen.getByText(/World/)).toHaveAttribute('href', '/courses/1');
 	});
 });

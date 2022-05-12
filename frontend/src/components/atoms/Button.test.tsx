@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { screen, render } from '@testing-library/react';
 import Button from './Button';
 
-describe('Testing Button atom', () => {
+describe('Button', () => {
 	it('It renders info button properly', () => {
 		render(<Button role="info">Click me!</Button>);
 
