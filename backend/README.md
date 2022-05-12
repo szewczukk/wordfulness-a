@@ -28,7 +28,8 @@
 
 ## Environmental variables
 
-- DATABASE_URL - URL to PostgreSQL database
+- DATABASE_URL
+- SESSION_SECRET
 
 ## Installation
 

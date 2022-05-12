@@ -30,6 +30,10 @@ export class UsersService {
 		return this.usersRepository.findOne(id);
 	}
 
+	findOneByUsername(username: string) {
+		return this.usersRepository.findOne({ where: { username } });
+	}
+
 	async update(id: number, updateUserInput: UpdateUserInput) {
 		if (updateUserInput.password) {
 			const password = await bcrypt.hash(updateUserInput.password, 10);

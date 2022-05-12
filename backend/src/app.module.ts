@@ -7,6 +7,7 @@ import { LessonsModule } from './lessons/lessons.module';
 import { CoursesModule } from './courses/courses.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
 	imports: [
@@ -31,6 +32,7 @@ import { UsersModule } from './users/users.module';
 		LessonsModule,
 		CoursesModule,
 		UsersModule,
+		AuthModule,
 	],
 })
 export class AppModule {}
