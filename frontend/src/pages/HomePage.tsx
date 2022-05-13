@@ -12,7 +12,7 @@ const HomePage: FC = () => {
 	return (
 		<HomeTemplate
 			courses={allCoursesData?.courses}
-			username={currentUserData?.me.username}
+			username={currentUserData?.me?.username}
 		/>
 	);
 };

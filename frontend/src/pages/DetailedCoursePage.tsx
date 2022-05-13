@@ -3,16 +3,22 @@ import { useParams } from 'react-router-dom';
 import { LessonsFormValues } from 'src/components/organisms/LessonForm';
 import DetailedCourseTemplate from 'src/components/templates/DetailedCourseTemplate';
 import {
+	FetchCurrentUserDocument,
+	FetchCurrentUserQuery,
 	FetchDetailedCourseDocument,
 	FetchDetailedCourseQuery,
 	useCreateLessonMutation,
+	useFetchCurrentUserQuery,
 	useFetchDetailedCourseQuery,
+	useLogoutMutation,
 } from 'src/generated/graphql';
 
 const DetailedCoursePage: FC = () => {
 	const { id } = useParams();
+	const [logout] = useLogoutMutation();
+	const { data: currentUserData } = useFetchCurrentUserQuery();
 	const [createLesson] = useCreateLessonMutation();
-	const { data } = useFetchDetailedCourseQuery({
+	const { data: detailedCourseData } = useFetchDetailedCourseQuery({
 		variables: { id: id as string },
 	});
 
@@ -42,10 +48,23 @@ const DetailedCoursePage: FC = () => {
 		});
 	};
 
+	const handleLogoutClick = () => {
+		logout({
+			update: (store) => {
+				store.writeQuery<FetchCurrentUserQuery>({
+					query: FetchCurrentUserDocument,
+					data: { me: null },
+				});
+			},
+		});
+	};
+
 	return (
 		<DetailedCourseTemplate
-			lessons={data?.course.lessons}
+			lessons={detailedCourseData?.course.lessons}
+			isAuthenticated={currentUserData?.me !== null}
 			onSubmit={handleSubmit}
+			onLogoutClick={handleLogoutClick}
 		/>
 	);
 };

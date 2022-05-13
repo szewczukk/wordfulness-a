@@ -6,7 +6,9 @@ import { MemoryRouter } from 'react-router-dom';
 
 describe('DetailedCourseTemplate', () => {
 	it("It doesn't render empty array", () => {
-		render(<DetailedCourseTemplate onSubmit={vi.fn()} />);
+		render(
+			<DetailedCourseTemplate onSubmit={vi.fn()} onLogoutClick={vi.fn()} />,
+		);
 
 		screen.getByText(/No lessons!/);
 	});
@@ -19,6 +21,7 @@ describe('DetailedCourseTemplate', () => {
 					{ id: '0', name: 'Hello' },
 					{ id: '1', name: 'World' },
 				]}
+				onLogoutClick={vi.fn()}
 			/>,
 			{ wrapper: MemoryRouter },
 		);

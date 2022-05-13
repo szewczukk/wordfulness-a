@@ -36,7 +36,7 @@ type Query {
   course(id: ID!): Course!
   users: [User!]!
   user(id: ID!): User!
-  me: User!
+  me: User
 }
 
 type Mutation {
@@ -53,6 +53,7 @@ type Mutation {
   updateUser(updateUserInput: UpdateUserInput!): User!
   removeUser(id: ID!): User!
   login(credentials: CredentialsInput!): User!
+  logout: String!
 }
 
 input CreateFlashcardInput {

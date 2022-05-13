@@ -17,12 +17,23 @@ export class AuthResolver {
 		@Context() context,
 	) {
 		const user = await this.authService.authenticate(credentials);
-		context.req.userId = user.id;
+		context.req.session.userId = user.id;
 		return user;
 	}
 
-	@Query(() => User)
+	@Query(() => User, { nullable: true })
 	async me(@Context() context) {
-		return this.usersSerivce.findOne(context.req.userId);
+		try {
+			const user = await this.usersSerivce.findOne(context.req.session.userId);
+			return user;
+		} catch (err) {
+			return null;
+		}
+	}
+
+	@Mutation(() => String)
+	logout(@Context() context) {
+		context.req.session.destroy();
+		return 'ok';
 	}
 }
