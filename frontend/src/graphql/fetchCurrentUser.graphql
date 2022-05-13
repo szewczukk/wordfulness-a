@@ -1,0 +1,6 @@
+query FetchCurrentUser {
+	me {
+		id
+		username
+	}
+}
