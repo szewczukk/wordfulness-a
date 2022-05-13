@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import DetailedCoursePage from './pages/DetailedCoursePage';
 import DetailedLessonPage from './pages/DetailedLessonPage';
 import Home from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
 
 const client = new ApolloClient({
 	uri: 'http://localhost:3000/graphql',
@@ -17,8 +18,12 @@ const App: FC = () => (
 				<Link to="/" className="mb-8 block cursor-pointer hover:underline">
 					Home
 				</Link>
+				<Link to="/login" className="mb-8 block cursor-pointer hover:underline">
+					Login
+				</Link>
 				<Routes>
 					<Route path="" element={<Home />} />
+					<Route path="/login" element={<LoginPage />} />
 					<Route path="/courses/:id" element={<DetailedCoursePage />} />
 					<Route path="/lessons/:id" element={<DetailedLessonPage />} />
 				</Routes>
